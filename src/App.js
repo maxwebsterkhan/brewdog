@@ -64,22 +64,25 @@ function BeerGallery() {
   const beers = React.useContext(DataContext);
 
   return (
-    <div class="gallery">
-      {beers &&
-        beers.map((item) => (
-          <Gallery>
-            <div className="gallery__item">
-              <img
-                className="gallery__image"
-                src={item.image_url}
-                alt="pictures of various beverages"
-              />
-              <div className="gallery__text">{item.name}</div>
-              <div className="gallery__text">{item.tagline}</div>
-              <div className="gallery__text">{item.abv}</div>
-            </div>
-          </Gallery>
-        ))}
-    </div>
+    <>
+      <div className="page-title">Brewdog Gallery</div>
+      <div class="gallery">
+        {beers &&
+          beers.map((item) => (
+            <Gallery>
+              <div className="gallery__item">
+                <img
+                  className="gallery__image"
+                  src={item.image_url}
+                  alt="pictures of various beverages"
+                />
+                <div className="gallery__text">{item.name}</div>
+                <div className="gallery__text">{item.tagline}</div>
+                <div className="gallery__text">{item.abv}</div>
+              </div>
+            </Gallery>
+          ))}
+      </div>
+    </>
   );
 }
