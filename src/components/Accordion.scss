@@ -1,17 +1,19 @@
+$accordion-font-family: "Helvetica Neue", sans-serif;
+
 .accordion {
-  &-main-wrapper {
+  &__main-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 500px;
   }
-  &-wrapper {
+  &__wrapper {
     display: flex;
     flex-direction: column;
   }
 
-  &-title {
-    background-color: #eee;
+  &__title {
+    background: #eee;
     color: #444;
     cursor: pointer;
     display: flex;
@@ -22,12 +24,12 @@
     padding: 20px;
   }
 
-  &-title:hover,
+  &__title:hover,
   .active {
-    background-color: #ccc;
+    background: #ccc;
   }
 
-  &-icon {
+  &__icon {
     margin-left: auto;
     transition: transform 0.6s ease;
   }
@@ -36,19 +38,19 @@
     transform: rotate(90deg);
   }
 
-  &-content {
-    background-color: white;
+  &__content {
+    background: #fff;
     overflow: hidden;
     transition: max-height 0.6s ease;
   }
 
-  &-image-wrapper {
+  &__image-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  &-image {
+  &__image {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,22 +58,21 @@
     height: auto;
   }
 
-  &-text-wrapper {
+  &__text-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 200px;
-    max-width: 450px;
+    max-width: 550px;
   }
 
-  &-tag {
+  &__tag {
     font-weight: 400;
     font-size: 20px;
     padding: 18px;
     margin-top: 15px;
     color: #111;
-    font-family: "Helvetica Neue", sans-serif;
+    font-family: $accordion-font-family;
     font-weight: 600;
     letter-spacing: -1px;
     line-height: 1;
@@ -79,12 +80,12 @@
     padding: 20px;
   }
 
-  &-date {
+  &__date {
     font-weight: 400;
     font-size: 14px;
     padding: 18px;
     color: #111;
-    font-family: "Helvetica Neue", sans-serif;
+    font-family: $accordion-font-family;
     font-weight: 500;
     letter-spacing: -1px;
     line-height: 1;
@@ -92,12 +93,12 @@
     padding: 20px;
   }
 
-  &-description {
+  &__description {
     font-weight: 400;
     font-size: 18px;
     padding: 18px;
     color: #111;
-    font-family: "Helvetica Neue", sans-serif;
+    font-family: $accordion-font-family;
     font-weight: 500;
     letter-spacing: -1px;
     line-height: 1;
@@ -105,6 +106,7 @@
     padding: 20px;
   }
 }
+
 .arrow-wrapper {
   padding-left: 20px;
 }

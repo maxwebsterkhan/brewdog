@@ -26,16 +26,16 @@ export const Accordion = (props) => {
   };
 
   return (
-    <div className="accordion-wrapper">
+    <div className="accordion__wrapper">
       <button
-        className="accordion-title"
+        className="accordion__title"
         onClick={toggleActive}
         onKeyPress={toggleActive}
       >
         <div style={titleStyle}>{props.title}</div>
         <span className={active ? "arrow down" : "arrow right"}></span>
       </button>
-      <div ref={contentRef} className="accordion-content">
+      <div ref={contentRef} className="accordion__content">
         {props.children}
       </div>
     </div>
