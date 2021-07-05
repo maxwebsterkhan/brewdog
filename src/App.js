@@ -1,42 +1,42 @@
-import { useEffect } from "react";
-import "./App.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Accordion } from "./components/Accordion";
+import "./App.css";
 
 function App() {
+  const [beers, fetchBeers] = useState("");
+  const url = "https://api.punkapi.com/v2/beers";
+  useEffect(() => {
+    fetchAllBeers();
+  }, []);
 
+  const fetchAllBeers = () => {
+    axios
+      .get(`${url}`)
+      .then((res) => {
+        const allBeers = res.data;
+        fetchBeers(allBeers);
+        console.log(beers);
+      })
+      .catch((err) => console.error(`Error: ${err}`));
+  };
+
+  <Accordion title={JSON.stringify(beers[0].name)}>
+    <span className="accordion-text">{JSON.stringify(beers[0].tagline)}</span>
+    <span className="accordion-text">
+      {JSON.stringify(beers[0].description)}
+    </span>
+  </Accordion>;
 
   return (
     <div className="App">
-      <Accordion title="A">
-        <span className="accordion-text">
-          Morbi faucibus nunc et faucibus fermentum. Quisque dapibus nunc id
-          varius ullamcorper. Vestibulum nec tristique felis. Morbi vel massa
-          iaculis, condimentum eros at, feugiat dui. Nullam nec dolor vitae nisl
-          commodo porta. Sed ut sagittis turpis. Nam pellentesque erat purus, et
-          maximus risus pellentesque sed. Mauris pharetra felis odio, ut blandit
-          tellus vestibulum et. Proin vulputate quam sed tincidunt luctus.
-        </span>
-      </Accordion>
-      <Accordion title="B">
-        <span className="accordion-text">
-          Morbi faucibus nunc et faucibus fermentum. Quisque dapibus nunc id
-          varius ullamcorper. Vestibulum nec tristique felis. Morbi vel massa
-          iaculis, condimentum eros at, feugiat dui. Nullam nec dolor vitae nisl
-          commodo porta. Sed ut sagittis turpis. Nam pellentesque erat purus, et
-          maximus risus pellentesque sed. Mauris pharetra felis odio, ut blandit
-          tellus vestibulum et. Proin vulputate quam sed tincidunt luctus.
-        </span>
-      </Accordion>
-      <Accordion title="C">
-        <span className="accordion-text">
-          Morbi faucibus nunc et faucibus fermentum. Quisque dapibus nunc id
-          varius ullamcorper. Vestibulum nec tristique felis. Morbi vel massa
-          iaculis, condimentum eros at, feugiat dui. Nullam nec dolor vitae nisl
-          commodo porta. Sed ut sagittis turpis. Nam pellentesque erat purus, et
-          maximus risus pellentesque sed. Mauris pharetra felis odio, ut blandit
-          tellus vestibulum et. Proin vulputate quam sed tincidunt luctus.
-        </span>
-      </Accordion>
+      {beers &&
+        beers.map((item) => (
+          <Accordion title={item.name}>
+            <span className="accordion-text">{item.tagline}</span>
+            <span className="accordion-text">{item.description}</span>
+          </Accordion>
+        ))}
     </div>
   );
 }
