@@ -74,9 +74,9 @@ function BeerGallery() {
                 src={item.image_url}
                 alt="pictures of various beverages"
               />
-              <div className="gallery__title">{item.name}</div>
-              <div className="gallery__tagline">{item.tagline}</div>
-              <div className="gallery__abv">{item.abv}</div>
+              <div className="gallery__text">{item.name}</div>
+              <div className="gallery__text">{item.tagline}</div>
+              <div className="gallery__text">{item.abv}</div>
             </div>
           </Gallery>
         ))}
