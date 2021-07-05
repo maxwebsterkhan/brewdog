@@ -1,5 +1,4 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Accordion } from "./components/Accordion";
 import { Gallery } from "./components/Gallery";
@@ -63,26 +62,24 @@ function Home() {
 
 function BeerGallery() {
   const beers = React.useContext(DataContext);
+
   return (
-    <>
-      <Gallery title="Brewdog Gallery">
-        <div class="card__wrapper--outer">
-          <div class="card__wrapper--inner">
-            <div class="card">
-              <img src="http://via.placeholder.com/290x150?text=FlexCards" />
-              <div class="card__item">
-                <h2>{beers[0].name}</h2>
-              </div>
-              <div class="card__sub">
-                <div>Alcohol Percentage</div>
-              </div>
-              <div class="card__item flexible">
-                <div>Beer description goes here</div>
-              </div>
+    <div class="gallery">
+      {beers &&
+        beers.map((item) => (
+          <Gallery>
+            <div className="gallery__item">
+              <img
+                className="gallery__image"
+                src={item.image_url}
+                alt="pictures of various beverages"
+              />
+              <div className="gallery__title">{item.name}</div>
+              <div className="gallery__tagline">{item.tagline}</div>
+              <div className="gallery__abv">{item.abv}</div>
             </div>
-          </div>
-        </div>
-      </Gallery>
-    </>
+          </Gallery>
+        ))}
+    </div>
   );
 }
