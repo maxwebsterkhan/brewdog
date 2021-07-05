@@ -15,8 +15,14 @@ export const Accordion = (props) => {
   };
 
   const titleStyle = {
-    fontWeight: 600,
-    fontSize: "14px",
+    color: "#111",
+    fontFamily: "Helvetica Neue, sans-serif",
+    fontSize: "20px",
+    fontWeight: "bold",
+    letterSpacing: "-1px",
+    lineHeight: 1,
+    textAlign: "center",
+    padding: "20px",
   };
 
   return (
@@ -26,12 +32,9 @@ export const Accordion = (props) => {
         onClick={toggleActive}
         onKeyPress={toggleActive}
       >
-        <p style={titleStyle}>{props.title}</p>
-        <span className={active ? "accordion-icon rotate" : "accordion-icon"}>
-          {">"}
-        </span>
+        <div style={titleStyle}>{props.title}</div>
+        <span className={active ? "arrow down" : "arrow right"}></span>
       </button>
-
       <div ref={contentRef} className="accordion-content">
         {props.children}
       </div>
