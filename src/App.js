@@ -6,6 +6,7 @@ import "./App.css";
 function App() {
   const [beers, fetchBeers] = useState("");
   const url = "https://api.punkapi.com/v2/beers";
+
   useEffect(() => {
     fetchAllBeers();
   }, []);
@@ -20,14 +21,7 @@ function App() {
       })
       .catch((err) => console.error(`Error: ${err}`));
   };
-
-  <Accordion title={JSON.stringify(beers[0].name)}>
-    <span className="accordion-text">{JSON.stringify(beers[0].tagline)}</span>
-    <span className="accordion-text">
-      {JSON.stringify(beers[0].description)}
-    </span>
-  </Accordion>;
-
+  
   return (
     <div className="App">
       {beers &&
