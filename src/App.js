@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Accordion } from "./components/Accordion";
 import { Gallery } from "./components/Gallery";
+import { DataContext } from "./BeerContext";
 import "./App.scss";
 
 export const App = () => {
@@ -31,23 +32,7 @@ export const App = () => {
 };
 
 function Home() {
-  const [beers, setBeers] = useState("");
-  const url = "https://api.punkapi.com/v2/beers";
-
-  useEffect(() => {
-    fetchAllBeers();
-  }, []);
-  const fetchAllBeers = () => {
-    axios
-      .get(`${url}`)
-      .then((res) => {
-        const allBeers = res.data;
-        setBeers(allBeers);
-        console.log(beers);
-      })
-      .catch((err) => console.error(`Error: ${err}`));
-  };
-
+  const beers = React.useContext(DataContext);
   return (
     <>
       <div className="page-title">Brewdog Beer List</div>
@@ -77,6 +62,7 @@ function Home() {
 }
 
 function BeerGallery() {
+  const beers = React.useContext(DataContext);
   return (
     <>
       <Gallery title="Brewdog Gallery">
@@ -85,7 +71,7 @@ function BeerGallery() {
             <div class="card">
               <img src="http://via.placeholder.com/290x150?text=FlexCards" />
               <div class="card__item">
-                <h2>Name</h2>
+                <h2>{beers[0].name}</h2>
               </div>
               <div class="card__sub">
                 <div>Alcohol Percentage</div>
