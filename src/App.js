@@ -9,11 +9,11 @@ export const App = () => {
   return (
     <Router>
       <div>
-        <nav>
-          <div>
+        <nav className="navbar">
+          <div className="navbar__animation">
             <Link to="/">Home</Link>
           </div>
-          <div>
+          <div className="navbar__animation">
             <Link to="/BeerGallery">Gallery</Link>
           </div>
         </nav>
