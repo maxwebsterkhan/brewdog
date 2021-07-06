@@ -1,6 +1,5 @@
-# Brewdog Beer
+# Brewdog Beer App
 
-Brewdog beer app
 An app to find you Brewdogs beer selection & filter by strength
 
 Live version of the app can be found at: https://vibrant-mayer-bf9cb6.netlify.app/
