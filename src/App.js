@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Accordion } from "./components/Accordion";
 import { Gallery } from "./components/Gallery";
 import { DataContext } from "./BeerContext";
 import "./App.scss";
+import { sortBeersByAbv } from "./helpers/HelperFunctions";
 
 export const App = () => {
   return (
@@ -13,6 +14,7 @@ export const App = () => {
           <div className="navbar__animation">
             <Link to="/">Home</Link>
           </div>
+          <div className="spacing"></div>
           <div className="navbar__animation">
             <Link to="/BeerGallery">Gallery</Link>
           </div>
@@ -31,7 +33,7 @@ export const App = () => {
 };
 
 function Home() {
-  const beers = React.useContext(DataContext);
+  const { beers } = React.useContext(DataContext);
   return (
     <>
       <div className="page-title">Brewdog Beer List</div>
@@ -61,15 +63,31 @@ function Home() {
 }
 
 function BeerGallery() {
-  const beers = React.useContext(DataContext);
+  const { beers } = React.useContext(DataContext);
+  const [loadedBeers, setLoadedBeers] = useState([...beers]);
+  const [reversed, setReversed] = useState(false);
+
+  useEffect(() => {
+    setLoadedBeers(beers);
+  }, [beers]);
 
   return (
     <>
       <div className="page-title">Brewdog Gallery</div>
-      <div class="gallery">
-        {beers &&
-          beers.map((item) => (
-            <Gallery>
+      <button
+        className="button"
+        onClick={() => {
+          const sortedBeers = sortBeersByAbv(loadedBeers, reversed);
+          setLoadedBeers([...sortedBeers]);
+          setReversed(!reversed);
+        }}
+      >
+        Toggle Beers by {reversed ? "descending" : "ascending"} Abv.
+      </button>
+      <div className="gallery">
+        {loadedBeers &&
+          loadedBeers.map((item) => (
+            <Gallery key={item.id}>
               <div className="gallery__item">
                 <img
                   className="gallery__image"

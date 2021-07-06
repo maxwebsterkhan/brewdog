@@ -7,6 +7,9 @@
 a {
   text-decoration: none;
 }
+.spacing {
+  padding: 0 20px;
+}
 
 .page-title {
   color: #111;
@@ -16,8 +19,8 @@ a {
   letter-spacing: -1px;
   line-height: 1;
   text-align: center;
-  padding: 20px;
-  background: rgb(110, 105, 106);
+  padding: 40px;
+  background: #6e696a;
 }
 
 .navbar {
@@ -29,10 +32,11 @@ a {
   line-height: 1;
   text-align: center;
   padding: 20px;
-  background: rgb(110, 105, 106);
+  background: #6e696a;
+  display: flex;
+  justify-content: center;
 
   &__animation {
-    padding: 0 20px;
     display: inline-block;
     text-decoration: none;
     position: relative;
@@ -60,5 +64,35 @@ a {
   &__animation:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
+  }
+}
+
+.button {
+  box-sizing: border-box;
+  appearance: none;
+  background-color: #111;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 1;
+  text-align: center;
+  border-color: #111;
+  color: #fff;
+  margin: 20px auto;
+  background: {
+    image: linear-gradient(45deg, darkgrey 50%, transparent 50%);
+    position: 100%;
+    size: 400%;
+  }
+  transition: background 300ms ease-in-out;
+
+  &:hover {
+    background-position: 0;
   }
 }

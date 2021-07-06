@@ -67,19 +67,9 @@ $accordion-font-family: "Helvetica Neue", sans-serif;
     max-width: 550px;
   }
 
+  &__date,
+  &__description,
   &__tag {
-    font-size: 20px;
-    margin-top: 15px;
-    color: #111;
-    font-family: $accordion-font-family;
-    font-weight: 600;
-    letter-spacing: -1px;
-    line-height: 1;
-    text-align: center;
-    padding: 20px;
-  }
-
-  &__date {
     font-weight: 600;
     font-size: 16px;
     color: #111;
@@ -90,15 +80,8 @@ $accordion-font-family: "Helvetica Neue", sans-serif;
     padding: 20px;
   }
 
-  &__description {
-    font-weight: 400;
-    font-size: 18px;
-    color: #111;
-    font-family: $accordion-font-family;
-    letter-spacing: -1px;
-    line-height: 1;
-    text-align: center;
-    padding: 20px;
+  &__tag {
+    font-size: 20px;
   }
 }
 

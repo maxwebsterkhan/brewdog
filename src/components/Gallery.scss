@@ -39,10 +39,14 @@ $gallery-font-family: "Helvetica Neue", sans-serif;
     padding: 10px;
     color: #111;
     font-family: $gallery-font-family;
-    font-weight: 500;
     letter-spacing: -1px;
     line-height: 1;
     text-align: center;
+  }
+
+  &-content,
+  &-wrapper {
+    max-width: 100vw;
   }
 }
 

@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-
 export const DataContext = React.createContext();
 
 export function DataProvider({ children }) {
@@ -22,5 +21,11 @@ export function DataProvider({ children }) {
       .catch((err) => console.error(`Error: ${err}`));
   };
 
-  return <DataContext.Provider value={beers}>{children}</DataContext.Provider>;
+  const beerContext = {
+    beers,
+  };
+
+  return (
+    <DataContext.Provider value={beerContext}>{children}</DataContext.Provider>
+  );
 }
