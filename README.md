@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Brewdog Beer
 
 Brewdog beer app
 An app to find you Brewdogs beer selection & filter by strength
