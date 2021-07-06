@@ -7,19 +7,18 @@ export function DataProvider({ children }) {
   const url = "https://api.punkapi.com/v2/beers";
 
   useEffect(() => {
+    const fetchAllBeers = (beers) => {
+      axios
+        .get(`${url}`)
+        .then((res) => {
+          const allBeers = res.data;
+          setBeers(allBeers);
+          console.log(beers);
+        })
+        .catch((err) => console.error(`Error: ${err}`));
+    };
     fetchAllBeers();
   }, []);
-
-  const fetchAllBeers = () => {
-    axios
-      .get(`${url}`)
-      .then((res) => {
-        const allBeers = res.data;
-        setBeers(allBeers);
-        console.log(beers);
-      })
-      .catch((err) => console.error(`Error: ${err}`));
-  };
 
   const beerContext = {
     beers,
