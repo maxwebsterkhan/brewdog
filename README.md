@@ -1,6 +1,11 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Brewdog beer app
+An app to find you Brewdogs beer selection & filter by strength
+
+Live version of the app can be found at: https://vibrant-mayer-bf9cb6.netlify.app/
+
+This project was bootstrapped with Create React App.
 
 ## Available Scripts
 
